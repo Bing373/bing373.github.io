@@ -4,6 +4,7 @@
 }
 html{
     background-image: url(../img/bg.jpg);
+    background-attachment: fixed;
     opacity:0.95;
 }
 ::-webkit-scrollbar { display: none; }
