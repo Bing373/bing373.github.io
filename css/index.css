@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    background-image: url(../img/bg.jpg);
+    opacity:0.95;
+}
+::-webkit-scrollbar { display: none; }
+.box1{
+    width: 99%;
+    height: 708px;
+    margin: 0 auto 0;
+}
+.box1-1{
+    width: 80%;
+    height: 708px;
+    margin: 0 auto 0;
+}
+.box1-2{
+    width: 50%;
+    height: 394px;
+    margin: 144px auto 0;
+}
+.box1-img{
+    width: 175px;
+    height: 175px;
+    margin: 0 auto 0;
+    border-radius: 50%;
+    background-image: url("../img/373.jpg");
+    background-size: 100%;
+    opacity:0.85;
+}
+.box1-2-1{
+    width: 100%;
+    height: 38px;
+    margin: 45px auto 25px;
+}
+.box1-2-2{
+    width: 100%;
+    height: 39px;
+    margin: 0 auto 48px;
+}
+.my-1 {
+    font-family: "华文彩云", serif;
+    text-align: center;
+    font-size: 35px;
+    color: #77c6ba;
+}
+.my-2 {
+    font-family: "华文楷体", serif;
+    text-align: center;
+    font-size: 25px;
+    color: aquamarine;
+}
+.clearfix::after{
+    display: block;
+    clear: both;
+}
