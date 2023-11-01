@@ -4,6 +4,8 @@
 }
 html{
     background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     opacity:0.95;
 }
