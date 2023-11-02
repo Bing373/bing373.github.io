@@ -1,11 +1,12 @@
-var gitalk = new Gitalk({
-    clientID: 'GitHub Application Client ID',
-    clientSecret: 'GitHub Application Client Secret',
-    repo: 'GitHub repo',
-    owner: 'GitHub repo owner',
-    admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-})
+window.onscroll = function() {stickyFunction()};
 
-gitalk.render('gitalk-container')
+var navigationBar = document.getElementById("navigationBar");
+var box2OffsetTop = document.getElementsByClassName("box2")[0].offsetTop;
+
+function stickyFunction() {
+    if (window.pageYOffset >= box2OffsetTop) {
+        navigationBar.classList.add("sticky");
+    } else {
+        navigationBar.classList.remove("sticky");
+    }
+}

@@ -1,62 +1,146 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html{
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.box1 {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    border: 0px solid red;
+    display: flex;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-image: url(../img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity:0.95;
+    opacity: 0.95;
+
 }
-::-webkit-scrollbar { display: none; }
-.box1{
-    width: 99%;
-    height: 708px;
-    margin: 0 auto 0;
-}
-.box1-1{
+
+.box1-1 {
     width: 80%;
-    height: 708px;
-    margin: 0 auto 0;
+    height: 50%;
+    margin: 0 auto;
+    border: 0px solid blue;
 }
-.box1-2{
+
+.box1-2 {
     width: 50%;
     height: 394px;
-    margin: 144px auto 0;
+    margin: 16% auto 0;
+    border: 0px solid lightcoral;
 }
-.box1-img{
+
+.box1-img {
     width: 175px;
     height: 175px;
     margin: 0 auto 0;
     border-radius: 50%;
-    background-image: url("../img/373.jpg");
+    border: 0px solid seagreen;
+    background-image: url("https://avatars.githubusercontent.com/u/76254262?v=4");
     background-size: 100%;
-    opacity:0.85;
+    opacity: 0.85;
 }
-.box1-2-1{
+
+.box1-2-1 {
     width: 100%;
     height: 38px;
-    margin: 45px auto 25px;
+    margin: 45px auto 24px;
+    border: 0px solid blueviolet;
+    align-items: center;
+    justify-content: center;
 }
-.box1-2-2{
+
+.box1-2-2 {
     width: 100%;
     height: 39px;
     margin: 0 auto 48px;
+    border: 0px solid orange;
 }
+
 .my-1 {
-    font-family: "华文彩云", serif;
+    font-family: "华文行楷", serif;
     text-align: center;
     font-size: 35px;
     color: #77c6ba;
 }
+
 .my-2 {
     font-family: "华文楷体", serif;
     text-align: center;
     font-size: 25px;
     color: aquamarine;
 }
-.clearfix::after{
+
+.clearfix::after {
     display: block;
     clear: both;
+}
+
+.box2 {
+    width: 100%;
+    margin: 100vh auto 0;
+    background: #211f1f;
+}
+
+.box2-1 {
+    width: 100%;
+    height: 65px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid #cc2f56;
+    background: #211f1f;
+    color: #fbfbfb;
+}
+
+.box2-1 a {
+    margin: 0 4%;
+    text-decoration: none;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #fbfbfb;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.box3 {
+    height: 100px;
+    border: 0px solid salmon;
+    text-align: center;
+    padding: 10%;
+}
+
+.box3 span{
+    font-family: "华文楷体", serif;
+    font-size: 6vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: "华文楷体", serif;
+}
+
+.container span {
+    width: 10%;
+    font-size: 9vw;
+    text-align: center;
+    margin-top: 30px;
 }
