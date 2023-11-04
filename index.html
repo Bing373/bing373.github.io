@@ -4,10 +4,7 @@
         <meta charset="UTF-8">
         <title>抢完辣条还想跑的博客</title>
         <link rel="stylesheet" href="css/index.css">
-
         <link rel="stylesheet" href="css/gitalk.css">
-        <script src="js/gitalk.min.js"></script>
-
         <link rel="icon" href="https://avatars.githubusercontent.com/u/76254262?v=4" type="image/x-icon">
         <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/76254262?v=4" type="image/x-icon">
     </head>
@@ -16,7 +13,7 @@
         <div class="box1">
             <div class="box1-1">
                 <div class="box1-2">
-                    <div class="box1-img"></div>
+                    <div class="box1-img rotating-img"></div>
                     <div class="box1-2-1">
                         <h2 class="my-1">抢完辣条还想跑</h2>
                     </div>
@@ -28,22 +25,74 @@
         </div>
         <div class="box2">
             <div class="box2-1" id="navigationBar">
-                <a href="#" class="box2-1-1 ">搞机</a>|
-                <a href="#" class="box2-1-2">编程</a>|
-                <a href="#" class="box2-1-3">杂谈</a>|
-                <a href="#" class="box2-1-4">资源</a>|
-                <a href="#" class="box2-1-5">关于</a>
+                <span onclick="scrollToSection('#show1-1')">搞机</span>|
+                <span onclick="scrollToSection('#show1-2')">编程</span>|
+                <span onclick="scrollToSection('#show1-3')">杂谈</span>|
+                <span onclick="scrollToSection('#show1-4')">资源</span>|
+                <span onclick="scrollToSection('#show1-5')">关于</span>
             </div>
         </div>
-        <div class="box3">
-            <span>未做手机端适配</span>
+        <div class="box3" id="show1">
+            <div class="side_border" id="side_border">
+                <div class="side-1">
+                    <div class="side-1-img"><img class="rotating-img" src="https://avatars.githubusercontent.com/u/76254262?v=4"  alt="0_0"/></div>
+                    <div class="side-1-1">
+                        <span class="side-1-1-span">抢完辣条还想跑</span><br>
+                        <span class="side-1-1-span-2">现居：吉林长春</span>
+                    </div>
+                </div>
+                <div class="side-2">
+                    <div class="music-box">
+                        <!-- 上部分 -->
+                        <article>
+                            <div class="m-img-box">
+                                <div class="m-img-content"></div>
+                            </div>
+                            <div class="m-description-content">
+                                <article>
+                                    <span class="m-title" id="m-title">音乐名</span>
+                                    <span class="m-author" id="m-author">作者</span>
+                                </article>
+                                <div class="m-btn-box">
+                                    <button class="m-previous-btn">
+                                        <svg t="1699099452535" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1910" width="48" height="48"><path d="M928 335.1c-22.6-53.4-54.9-101.3-96.1-142.5-41.2-41.2-89.1-73.5-142.5-96.1-55.3-23.4-114-35.2-174.5-35.2S395.7 73.1 340.4 96.5c-53.4 22.6-101.3 54.9-142.5 96.1-41.2 41.2-73.5 89.1-96.1 142.5-23.4 55.3-35.2 114-35.2 174.5s11.9 119.2 35.2 174.5c22.6 53.4 54.9 101.3 96.1 142.5 41.2 41.2 89.1 73.5 142.5 96.1 55.3 23.4 114 35.2 174.5 35.2s119.2-11.9 174.5-35.2c53.4-22.6 101.3-54.9 142.5-96.1 41.2-41.2 73.5-89.1 96.1-142.5 23.4-55.3 35.2-114 35.2-174.5S951.3 390.4 928 335.1zM514.9 877.9c-203.1 0-368.3-165.2-368.3-368.3 0-203.1 165.2-368.3 368.3-368.3 203.1 0 368.3 165.2 368.3 368.3 0 203-165.2 368.3-368.3 368.3z" p-id="1911"></path><path d="M685.9 339.9c-12.4-7.1-27.6-7.1-40 0l-233.8 135c-3.1 1.8-5.8 3.9-8.3 6.4V356.6c0-22.1-17.9-40-40-40s-40 17.9-40 40v306c0 22.1 17.9 40 40 40s40-17.9 40-40V537.9c2.4 2.4 5.2 4.6 8.3 6.4l233.8 135c6.2 3.6 13.1 5.4 20 5.4s13.8-1.8 20-5.4c12.4-7.1 20-20.3 20-34.6v-270c0-14.4-7.6-27.6-20-34.8z m-60 235.4l-113.8-65.7 113.8-65.7v131.4z" p-id="1912"></path></svg>
+                                    </button>
+                                    <button class="m-play-btn" id="m-play-btn">
+                                        <svg t="1699099682792" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2348" width="48" height="48"><path d="M923.5 336.9c-22.6-53.4-54.9-101.3-96.1-142.5-41.2-41.2-89.1-73.5-142.5-96.1C629.7 75 571 63.1 510.5 63.1S391.3 75 336 98.3c-53.4 22.6-101.3 54.9-142.5 96.1-41.2 41.2-73.5 89.1-96.1 142.5-23.4 55.3-35.2 114-35.2 174.5s11.9 119.2 35.2 174.5c22.6 53.4 54.9 101.3 96.1 142.5 41.2 41.2 89.1 73.5 142.5 96.1 55.3 23.4 114 35.2 174.5 35.2s119.2-11.9 174.5-35.2c53.4-22.6 101.3-54.9 142.5-96.1 41.2-41.2 73.5-89.1 96.1-142.5 23.4-55.3 35.2-114 35.2-174.5s-11.9-119.2-35.3-174.5z m-413 542.8c-203.1 0-368.3-165.2-368.3-368.3 0-203.1 165.2-368.3 368.3-368.3 203.1 0 368.3 165.2 368.3 368.3 0 203.1-165.2 368.3-368.3 368.3z" p-id="2349"></path><path d="M647.4 341.8c-12.4-7.1-27.6-7.1-40 0l-233.8 135c-12.4 7.1-20 20.4-20 34.6 0 14.3 7.6 27.5 20 34.6l233.8 135c6.2 3.6 13.1 5.4 20 5.4s13.8-1.8 20-5.4c12.4-7.1 20-20.3 20-34.6v-270c0-14.3-7.6-27.5-20-34.6z m-60 235.3l-113.8-65.7 113.8-65.7v131.4z" p-id="2350"></path></svg>
+                                    </button>
+                                    <button class="m-next-btn">
+                                        <svg t="1699099475589" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2056" width="48" height="48"><path d="M101.9 684.1c22.6 53.4 54.9 101.3 96.1 142.5 41.2 41.2 89.1 73.5 142.5 96.1 55.3 23.4 114 35.2 174.5 35.2s119.2-11.9 174.5-35.2c53.4-22.6 101.3-54.9 142.5-96.1 41.2-41.2 73.5-89.1 96.1-142.5 23.4-55.3 35.2-114 35.2-174.5s-11.9-119.2-35.2-174.5c-22.6-53.4-54.9-101.3-96.1-142.5-41.2-41.2-89.1-73.5-142.5-96.1-55.3-23.4-114-35.2-174.5-35.2S395.7 73.1 340.4 96.5c-53.4 22.6-101.3 54.9-142.5 96.1-41.2 41.2-73.5 89.1-96.1 142.5-23.4 55.3-35.2 114-35.2 174.5s11.9 119.2 35.3 174.5z m413-542.8c203.1 0 368.3 165.2 368.3 368.3 0 203.1-165.2 368.3-368.3 368.3-203.1 0-368.3-165.2-368.3-368.3 0-203.1 165.2-368.3 368.3-368.3z" p-id="2057"></path><path d="M343.9 679.2c12.4 7.1 27.6 7.1 40 0l233.8-135c3.1-1.8 5.8-3.9 8.3-6.4v124.7c0 22.1 17.9 40 40 40s40-17.9 40-40v-306c0-22.1-17.9-40-40-40s-40 17.9-40 40v124.7c-2.4-2.4-5.2-4.6-8.3-6.4l-233.8-135c-6.2-3.6-13.1-5.4-20-5.4s-13.8 1.8-20 5.4c-12.4 7.1-20 20.3-20 34.6v270c0 14.4 7.6 27.7 20 34.8z m60-235.3l113.8 65.7-113.8 65.7V443.9z" p-id="2058"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 下部分 -->
+                        <section>
+                            <span class="m-current-time">00 : 00</span>
+                            <div class="m-progress-bar">
+                                <div class="m-progress-main">
+                                    <span class="m-progress-btn"></span>
+                                </div>
+                                <div class="m-progress-load"></div>
+                            </div>
+                            <span class="m-total-time">00 : 00</span>
+                        </section>
+                    </div>
+                </div>
+                <div class="blog_time" id="blog_time"></div>
+            </div>
+            <div class="box3-1" id="show1-1">
+                <div class="box3-1-1">没想好写啥</div>
+            </div>
         </div>
-        <div class="container">
+
+<!--        <div class="container">
             <span>摆</span>
             <span>烂</span>
             <span>了</span>
             <span></span>
-        </div>
+        </div>-->
         <script src="js/index.js"></script>
+        <script src="js/gitalk.min.js"></script>
     </body>
 </html>
