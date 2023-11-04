@@ -15,6 +15,28 @@ function stickyFunction() {
     }
 }*/
 
+function landscapeScreen(){
+    var pageWidth = window.innerWidth || document.documentElement.clientWidth;
+    var pageHeight = window.innerHeight || document.documentElement.clientHeight;
+    var landscapeScreen = document.getElementById('landscapeScreen');
+    if(pageWidth<pageHeight){
+        document.getElementById("landscapeScreen").innerHTML = "<div class=\"landscapeScreen\">\n" +
+            "            <div class=\"landscapeScreen-1\"><span >请将屏幕横置</span></div>\n" +
+            "        </div>";
+        var siteWelcome = document.getElementById('siteWelcome');
+        siteWelcome.classList.remove('active');
+        landscapeScreen.classList.add('active');
+    }
+    else{
+        landscapeScreen.classList.remove('active');
+        setInterval(updateTime, 1000);
+    }
+    // console.log("页面宽度：" + pageWidth);
+    // console.log("页面高度：" + pageHeight);
+}
+
+setInterval(landscapeScreen, 1000);
+
 // 滚动至顶部
 function scrollToSection(sectionId) {
     const section = document.querySelector(sectionId);
@@ -53,8 +75,6 @@ function updateTime() {
         seconds +
         "秒";
 }
-
-setInterval(updateTime, 1000);
 
 function rotateImageOnHover() {
     var rotatingImage = document.querySelector('.rotating-img');
@@ -628,3 +648,4 @@ playBtn.addEventListener('click', function() {
         isClicked = false;
     }
 });
+
