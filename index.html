@@ -10,6 +10,11 @@
     </head>
 
     <body>
+        <div class="site-welcome active" id="siteWelcome">
+            <div class="loading"></div>
+        </div>
+
+        <div id="landscapeScreen" class="site-welcome active">请将屏幕横置</div>
         <div class="box1">
             <div class="box1-1">
                 <div class="box1-2">
@@ -25,11 +30,11 @@
         </div>
         <div class="box2">
             <div class="box2-1" id="navigationBar">
-                <span onclick="scrollToSection('#show1-1')">搞机</span>|
-                <span onclick="scrollToSection('#show1-2')">编程</span>|
-                <span onclick="scrollToSection('#show1-3')">杂谈</span>|
-                <span onclick="scrollToSection('#show1-4')">资源</span>|
-                <span onclick="scrollToSection('#show1-5')">关于</span>
+                <span onclick="">搞机</span>|
+                <span onclick="">编程</span>|
+                <span onclick="">杂谈</span>|
+                <span onclick="">资源</span>|
+                <span onclick="">关于</span>
             </div>
         </div>
         <div class="box3" id="show1">
@@ -43,15 +48,14 @@
                 </div>
                 <div class="side-2">
                     <div class="music-box">
-                        <!-- 上部分 -->
                         <article>
                             <div class="m-img-box">
                                 <div class="m-img-content"></div>
                             </div>
                             <div class="m-description-content">
-                                <article>
-                                    <span class="m-title" id="m-title">音乐名</span>
-                                    <span class="m-author" id="m-author">作者</span>
+                                <article id="m-1">
+                                    <div class="m-title" id="m-title">音乐名&nbsp;</div>
+                                    <div class="m-author" id="m-author">作者</div>
                                 </article>
                                 <div class="m-btn-box">
                                     <button class="m-previous-btn">
@@ -66,7 +70,6 @@
                                 </div>
                             </div>
                         </article>
-                        <!-- 下部分 -->
                         <section>
                             <span class="m-current-time">00 : 00</span>
                             <div class="m-progress-bar">
@@ -85,14 +88,12 @@
                 <div class="box3-1-1">没想好写啥</div>
             </div>
         </div>
-
-<!--        <div class="container">
-            <span>摆</span>
-            <span>烂</span>
-            <span>了</span>
-            <span></span>
-        </div>-->
         <script src="js/index.js"></script>
-        <script src="js/gitalk.min.js"></script>
+        <script>
+            window.onload=function(){
+                var siteWelcome = document.getElementById('siteWelcome');
+                siteWelcome.classList.remove('active');
+            }
+        </script>
     </body>
 </html>

@@ -11,6 +11,67 @@ html {
     font-size: 0.0625rem;
 }
 
+.loading{
+    width: 100%;
+    height: 20vh;
+    position: relative;
+}
+.loading::before,.loading::after{
+    content: '';
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    background: #72f5fa;
+    border-radius: 50%;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    animation: toBig 1.5s linear infinite;
+}
+.loading::after{
+    animation-delay: 0.75s;
+}
+@keyframes toBig {
+    100%{
+        width: 35vh;
+        height: 35vh;
+        opacity: 0;
+    }
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+}
+.site-welcome{
+    display: none;
+    justify-content:center;
+    align-items:center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
+.site-welcome.active{
+    display:flex;
+}
+
+.landscapeScreen {
+    width: 100%;
+    /*height: 50vh;*/
+}
+.landscapeScreen-1 {
+    margin: 50%;
+    font-size: 5vh;
+}
+
 .box1 {
     width: 100%;
     height: 100vh;
@@ -164,7 +225,7 @@ html {
 }
 
 .side-1-1 {
-    margin-top: 5%;
+    margin-top: 8%;
     height: 45%;
 }
 
@@ -314,11 +375,22 @@ html {
     color: #2f2f2f;
 }
 
+@keyframes moveText {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .m-title,
 .m-author {
     white-space: nowrap;
-    text-overflow: ellipsis;
     overflow: hidden;
+    position: relative;
+    animation: moveText 0.65s ease-in-out infinite;
+    /*text-overflow: clip;*/
 }
 
 .m-btn-box {
@@ -438,6 +510,8 @@ html {
 }
 
 .rotating-img {
+    margin-top: 15%;
+    margin-bottom: 10%;
     transition: transform 0.5s ease; /* 添加过渡效果，使旋转平滑 */
 }
 

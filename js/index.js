@@ -15,6 +15,27 @@ function stickyFunction() {
     }
 }*/
 
+function landscapeScreen() {
+    var pageWidth = window.innerWidth || document.documentElement.clientWidth;
+    var pageHeight = window.innerHeight || document.documentElement.clientHeight;
+    var landscapeScreen = document.getElementById('landscapeScreen');
+    if (pageWidth < pageHeight) {
+        document.getElementById("landscapeScreen").innerHTML = "<div class=\"landscapeScreen\">\n" +
+            "            <div class=\"landscapeScreen-1\"><span >请将屏幕横置</span></div>\n" +
+            "        </div>";
+        var siteWelcome = document.getElementById('siteWelcome');
+        siteWelcome.classList.remove('active');
+        landscapeScreen.classList.add('active');
+    } else {
+        landscapeScreen.classList.remove('active');
+        setInterval(updateTime, 1000);
+    }
+    // console.log("页面宽度：" + pageWidth);
+    // console.log("页面高度：" + pageHeight);
+}
+
+setInterval(landscapeScreen, 1000);
+
 // 滚动至顶部
 function scrollToSection(sectionId) {
     const section = document.querySelector(sectionId);
@@ -54,8 +75,6 @@ function updateTime() {
         "秒";
 }
 
-setInterval(updateTime, 1000);
-
 function rotateImageOnHover() {
     var rotatingImage = document.querySelector('.rotating-img');
 
@@ -89,7 +108,7 @@ class MusicPlayer {
             // 歌曲信息在这里修改
             songObjArr: [
                 {
-                    title: "I miss you, I’m sorry",
+                    title: "I miss you, I'm sorry",
                     author: "Gracie Abrams",
                     imgSrc: "./public/images/01.jpg",
                     url: "./public/audios/01.m4a",
@@ -552,74 +571,72 @@ class MusicComp {
 
 new MusicPlayer();
 
+
 // 定义滚动函数
+let m1 = document.getElementById("m-1");
+
+const previousBtn = document.querySelector('.m-previous-btn');
+const nextBtn = document.querySelector('.m-next-btn');
+
+previousBtn.addEventListener('click', () => {
+    // 获取需要滚动播放的div元素
+    const titleContainer = document.getElementById("m-title");
+    applyScrollAnimation(titleContainer);
+// 获取需要滚动播放的div元素
+    const auContainer = document.getElementById("m-author");
+    applyScrollAnimation(auContainer);
+});
+
+nextBtn.addEventListener('click', (event) => {
+
+    // 获取需要滚动播放的div元素
+    let titleContainer = document.getElementById("m-title");
+    titleContainer.style.animation = "none";
+    let auContainer = document.getElementById("m-author");
+    auContainer.style.animation = "none";
+    setTimeout(() => {
+        titleContainer = document.getElementById("m-title");
+        auContainer = document.getElementById("m-author");
+        console.log("名 " + titleContainer.textContent);
+        console.log("手 " + auContainer.textContent);
+        applyScrollAnimation(titleContainer);
+        applyScrollAnimation(auContainer);
+    }, 1000);
+
+});
+
 function applyScrollAnimation(element) {
     // 获取元素内的文本内容
-    const text = element.innerText;
-
-    // 创建一个新的span元素来包裹文本内容
-    const span = document.createElement('span');
-    span.innerText = text;
-
-    // 将span元素添加到元素中
-    element.innerHTML = '';
-    element.appendChild(span);
-
+    const text = element.textContent;
+    console.log(text)
+    console.log("div " + m1.offsetWidth)
+    console.log("文本 s " + element.scrollWidth)
     // 判断文本是否超出元素宽度
-    if (span.offsetWidth > element.offsetWidth) {
-        // 设置span元素的样式，使其实现文字滚动效果
-        span.style.display = 'inline-block';
-        span.style.animation = `scroll-text ${span.offsetWidth / 50}s linear infinite`;
-
-        // 设置滚动的距离
-        const scrollDistance = span.offsetWidth - element.offsetWidth;
-
-        // 设置滚动的速度
-        const scrollSpeed = span.offsetWidth / 100; // 调整这个值来改变滚动速度
-
-        // 设置动画的关键帧
-        const keyframes = `@keyframes scroll-text {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-${scrollDistance}px);
-      }
-    }`;
-
-        // 设置动画的持续时间
-        span.style.animation = `scroll-text ${scrollSpeed}s linear infinite`;
-
-        // 创建style标签，并将关键帧添加到其中
-        const styleTag = document.createElement('style');
-        styleTag.appendChild(document.createTextNode(keyframes));
-
-        // 将style标签添加到head元素中
-        document.head.appendChild(styleTag);
-
-        // 监听动画结束事件，当滚动距离超出实际文本距离时，重新滚动
-        span.addEventListener('animationiteration', () => {
-            if (span.offsetWidth < element.offsetWidth || Math.abs(parseInt(span.style.transform)) >= scrollDistance) {
-                span.style.transform = 'translateX(0)';
-            }
-        });
+    if (element.scrollWidth > m1.offsetWidth) {
+        element.textContent = element.textContent + String.fromCharCode(160).repeat(4);
+        element.style.animation = "moveText 0.65s ease-in-out infinite"
+        element.addEventListener("animationiteration", () => {
+            const text = element.textContent
+            console.log(element)
+            element.textContent = text.substring(1) + text.substring(0, 1);
+        })
     }
 }
 
 // 获取需要滚动播放的div元素
-const titleContainer = document.getElementById('m-title');
+const titleContainer = document.getElementById("m-title");
 applyScrollAnimation(titleContainer);
-
 // 获取需要滚动播放的div元素
-const auContainer = document.getElementById('m-author');
+const auContainer = document.getElementById("m-author");
 applyScrollAnimation(auContainer);
+
 
 // 按钮替换
 const playBtn = document.getElementById('m-play-btn');
 
 let isClicked = false;
 
-playBtn.addEventListener('click', function() {
+playBtn.addEventListener('click', function () {
     if (!isClicked) {
         playBtn.innerHTML = '<svg t="1699100306101" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2494" width="48" height="48"><path d="M928 335.1c-22.6-53.4-54.9-101.3-96.1-142.5-41.2-41.2-89.1-73.5-142.5-96.1-55.3-23.4-114-35.2-174.5-35.2S395.7 73.1 340.4 96.5c-53.4 22.6-101.3 54.9-142.5 96.1-41.2 41.2-73.5 89.1-96.1 142.5-23.4 55.3-35.2 114-35.2 174.5s11.9 119.2 35.2 174.5c22.6 53.4 54.9 101.3 96.1 142.5 41.2 41.2 89.1 73.5 142.5 96.1 55.3 23.4 114 35.2 174.5 35.2s119.2-11.9 174.5-35.2c53.4-22.6 101.3-54.9 142.5-96.1 41.2-41.2 73.5-89.1 96.1-142.5 23.4-55.3 35.2-114 35.2-174.5S951.3 390.4 928 335.1zM514.9 877.9c-203.1 0-368.3-165.2-368.3-368.3 0-203.1 165.2-368.3 368.3-368.3 203.1 0 368.3 165.2 368.3 368.3 0 203-165.2 368.3-368.3 368.3z" p-id="2495"></path><path d="M413.8 316.6c-22.1 0-40 17.9-40 40v306c0 22.1 17.9 40 40 40s40-17.9 40-40v-306c0-22.1-17.9-40-40-40zM616 316.6c-22.1 0-40 17.9-40 40v306c0 22.1 17.9 40 40 40s40-17.9 40-40v-306c0-22.1-17.9-40-40-40z" p-id="2496"></path></svg>';
         isClicked = true;
@@ -628,3 +645,4 @@ playBtn.addEventListener('click', function() {
         isClicked = false;
     }
 });
+
